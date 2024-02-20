@@ -11,7 +11,7 @@
         height: 100vh;
       }
       .left-content {
-        background-color: #fff6da;
+        background-color: #f6f0ff;
         width: 28%;
         height: 100vh;
         display: flex;
@@ -25,6 +25,9 @@
         align-items: center;
         height: 85vh;
         width: 60%;
+      }
+      .right-content_logo {
+        display: none;
       }
       .left-content_body {
         max-width: 580px;
@@ -49,12 +52,20 @@
         max-width: 280px;
         text-align: center;
       }
+
       @media only screen and (max-width: 834px) {
         .right-content {
           width: 100%;
+          display: flex;
+          flex-direction: column;
+          height: fit-content;
         }
         .left-content {
           display: none;
+        }
+        .right-content_logo {
+          display: block;
+          margin-top: 40px;
         }
       }
     </style>
@@ -85,7 +96,7 @@
         document.getElementById("content").innerText = textContent[index];
         index++;
       }, 3500);
-      console.log("test");
+      console.log("test1");
     </script>
   </head>
   <body>
@@ -126,7 +137,24 @@
         </div>
       </div>
       <div class="right-content">
+        <div class="right-content_logo">
+          <img
+            src="https://d3n7cyfdcp067b.cloudfront.net/ben-logo-con-plus.png"
+          />
+        </div>
         <div>{%- auth0:widget -%}</div>
+
+        <div class="left-content-disclaimer">
+          Al registrar la cuenta, aceptas los
+          <a href="https://daimon.club/proteccion-de-datos/"
+            >Términos y Condiciones de uso</a
+          >
+          y el
+          <a href="https://daimon.club/proteccion-de-datos/"
+            >Aviso de Privacidad</a
+          >
+          de daimon.club.
+        </div>
       </div>
     </div>
   </body>
