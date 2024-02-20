@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {%- auth0:head -%}
+    <style>
+      .page-content {
+        display: flex;
+        flex-direction: row;
+        width: 100%;
+        background-color: #ffffff;
+        height: 100vh;
+      }
+      .left-content {
+        background-color: #fff6da;
+        width: 28%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+      .right-content {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 85vh;
+        width: 60%;
+      }
+      .left-content_body {
+        max-width: 580px;
+        justify-content: center;
+        text-align: center;
+      }
+      .left-content-disclaimer {
+        margin-top: 15px;
+        color: #3a1f69;
+        width: 70%;
+        text-align: center;
+      }
+      .body-footer_title {
+        color: #5600e8;
+        font-weight: 700;
+      }
+      .body-footer_content {
+        margin-top: 5px;
+        color: #3a1f69;
+      }
+      #content {
+        max-width: 280px;
+        text-align: center;
+      }
+      @media only screen and (max-width: 834px) {
+        .right-content {
+          width: 100%;
+        }
+        .left-content {
+          display: none;
+        }
+      }
+    </style>
+
+    <script>
+      var imageSources = [
+        "https://d3n7cyfdcp067b.cloudfront.net/ben-man-running.png",
+        "https://d3n7cyfdcp067b.cloudfront.net/ben-share-bici.png",
+        "https://d3n7cyfdcp067b.cloudfront.net/ben-man-study.png",
+      ];
+      var textTitle = [
+        "Alcanza tus objetivos personales",
+        "Comparte con tus seres queridos",
+        "¿Eres independiente?",
+      ];
+      var textContent = [
+        "Te recomendaremos los mejores productos y servicios acordes a tus objetivos de vida.",
+        "Puedes incluir a los que más amas para redimir los beneficios.",
+        "Accede a los beneficios sin importar que no tengas un contrato formal.",
+      ];
+      var index = 0;
+      setInterval(function () {
+        if (index === imageSources.length) {
+          index = 0;
+        }
+        document.getElementById("image").src = imageSources[index];
+        document.getElementById("title").innerText = textTitle[index];
+        document.getElementById("content").innerText = textContent[index];
+        index++;
+      }, 3500);
+      console.log("test");
+    </script>
+  </head>
+  <body>
+    <div class="page-content">
+      <div class="left-content">
+        <div class="left-content_body">
+          <div class="left-content_body-head">
+            <img
+              src="https://d3n7cyfdcp067b.cloudfront.net/ben-logo-con-plus.png"
+            />
+          </div>
+          <div class="left-content_body-content">
+            <img
+              id="image"
+              src="https://d3n7cyfdcp067b.cloudfront.net/ben-man-running.png"
+            />
+          </div>
+          <div class="left-content_body-footer">
+            <p id="title" class="body-footer_title">
+              Alcanza tus objetivos personales
+            </p>
+            <p id="content" class="body-footer_content">
+              Te recomendaremos los mejores productos y servicios acordes a tus
+              objetivos de vida.
+            </p>
+          </div>
+        </div>
+        <div class="left-content-disclaimer">
+          Al registrar la cuenta, aceptas los
+          <a href="https://daimon.club/proteccion-de-datos/"
+            >Términos y Condiciones de uso</a
+          >
+          y el
+          <a href="https://daimon.club/proteccion-de-datos/"
+            >Aviso de Privacidad</a
+          >
+          de daimon.club.
+        </div>
+      </div>
+      <div class="right-content">
+        <div>{%- auth0:widget -%}</div>
+      </div>
+    </div>
+  </body>
+</html>
